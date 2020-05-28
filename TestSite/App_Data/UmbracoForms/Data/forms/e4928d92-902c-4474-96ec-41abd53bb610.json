@@ -1,13 +1,13 @@
 {
-  "name": "Test Form",
-  "created": "2020-05-28T13:30:16.1564554+01:00",
+  "name": "Test Form 2",
+  "created": "2020-05-28T14:48:54.5608638+01:00",
   "pages": [
     {
       "fieldSets": [
         {
           "caption": null,
           "sortOrder": 0,
-          "id": "7e39680e-8084-4ec6-ba64-a04519aacbac",
+          "id": "a012f067-4865-4c53-9f53-7cf9e392365b",
           "page": "00000000-0000-0000-0000-000000000000",
           "containers": [
             {
@@ -20,7 +20,7 @@
                   "placeholder": null,
                   "cssClass": null,
                   "alias": "dataConsent",
-                  "id": "cd510612-ef26-4210-a63a-50564be25d40",
+                  "id": "3a449eb3-26ab-4bef-89af-e389efa339a9",
                   "fieldTypeId": "a72c9df9-3847-47cf-afb8-b86773fd12cd",
                   "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
                   "dataSourceFieldKey": null,
@@ -47,14 +47,14 @@
       "form": "00000000-0000-0000-0000-000000000000"
     }
   ],
-  "id": "7b1bca91-c767-4b2d-9351-9a6931f06ef9",
+  "id": "e4928d92-902c-4474-96ec-41abd53bb610",
   "fieldIndicationType": "MarkMandatoryFields",
   "indicator": "*",
   "showValidationSummary": false,
   "hideFieldValidation": false,
   "requiredErrorMessage": "Please provide a value for {0}",
   "invalidErrorMessage": "Please provide a valid value for {0}",
-  "messageOnSubmit": "Thanks",
+  "messageOnSubmit": "Thank you",
   "goToPageOnSubmit": 0,
   "xPathOnSubmit": null,
   "manualApproval": false,
@@ -63,7 +63,7 @@
   "disableDefaultStylesheet": false,
   "useClientDependency": false,
   "workflows": [
-    "ccac78c3-a96d-481f-a499-321cfa755605"
+    "28fd12f6-3949-435e-bb08-458d894d1215"
   ],
   "datasource": null,
   "submitLabel": "Submit",

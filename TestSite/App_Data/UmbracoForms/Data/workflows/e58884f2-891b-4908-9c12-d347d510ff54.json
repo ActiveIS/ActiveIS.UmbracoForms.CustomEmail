@@ -1,0 +1,17 @@
+{
+  "id": "e58884f2-891b-4908-9c12-d347d510ff54",
+  "name": "Send template email to aaron.sadler@activeis.net",
+  "form": "e4928d92-902c-4474-96ec-41abd53bb610",
+  "active": true,
+  "includeSensitiveData": "False",
+  "workflowTypeId": "17c61629-d984-4e86-b43b-a8407b3efea9",
+  "executesOn": "Submitted",
+  "settings": {
+    "Email": "aaron.sadler@activeis.net",
+    "SenderEmail": "",
+    "Subject": "The Form '{form_name}' was submitted",
+    "RazorViewFilePath": "Forms/Emails/Example-Template.cshtml",
+    "Attachment": ""
+  },
+  "sortOrder": 1
+}

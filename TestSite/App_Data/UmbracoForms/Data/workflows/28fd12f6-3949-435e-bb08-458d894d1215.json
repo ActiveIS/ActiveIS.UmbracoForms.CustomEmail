@@ -1,0 +1,22 @@
+{
+  "id": "28fd12f6-3949-435e-bb08-458d894d1215",
+  "name": "Custom Email",
+  "form": "e4928d92-902c-4474-96ec-41abd53bb610",
+  "active": true,
+  "includeSensitiveData": "False",
+  "workflowTypeId": "1e106db8-685d-441f-9c19-c5e344163c2c",
+  "executesOn": "Submitted",
+  "settings": {
+    "ToEmail": "aaron.sadler@activeis.net",
+    "FromEmail": "from@activeis.net",
+    "FromName": "From Name",
+    "ReplyTo": "replyto@activeis.net",
+    "Bcc": "bcc@activeis.net",
+    "Cc": "cc@activeis.net",
+    "Heading": "Heading",
+    "Subject": "Subject",
+    "Message": "<p>Message</p>",
+    "TemplateName": ""
+  },
+  "sortOrder": 0
+}

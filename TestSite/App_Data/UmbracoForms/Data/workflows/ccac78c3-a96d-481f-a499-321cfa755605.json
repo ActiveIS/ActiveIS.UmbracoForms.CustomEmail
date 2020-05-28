@@ -10,9 +10,13 @@
     "ToEmail": "aaron.sadler@activeis.net",
     "FromEmail": "no-reply@activeis.net",
     "FromName": "ActiveIS",
+    "ReplyTo": "reply-to@activeis.net",
+    "Bcc": "bcc@activeis.net",
+    "Cc": "cc@activeis.net",
     "Heading": "Test Heading",
     "Subject": "Test Subject",
-    "Message": "<p><strong>Test</strong> <em>email</em> body using <a rel=\"noopener\" href=\"https://www.google.com\" target=\"_blank\">RTE</a></p>"
+    "Message": "<p><strong>Test</strong> <em>email</em> body using <a rel=\"noopener\" href=\"https://www.google.com\" target=\"_blank\">RTE</a></p>",
+    "TemplateName": null
   },
   "sortOrder": 0
 }
