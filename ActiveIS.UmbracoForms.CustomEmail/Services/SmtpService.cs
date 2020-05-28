@@ -19,7 +19,8 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Services
             _logger = logger;
         }
 
-        public void SendEmail(string emailBody, string toEmail, string fromEmail, string fromName, string subject)
+        public void SendEmail(string emailBody, string toEmail, string fromEmail, string fromName, string subject,
+            string replyTo, string bcc, string cc)
         {
             var message = new MailMessage();
 
@@ -48,11 +49,11 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Services
             }
 
             //Add to addresses
-            if (toEmailAddresses.Length > 1)
+            if (toEmailAddresses.Length >= 1)
             {
                 foreach (var toEmailAddress in toEmailAddresses)
                 {
-                    message.To.Add(toEmailAddress);
+                    message.To.Add(new MailAddress(toEmailAddress));
                 }
             }
 
@@ -61,6 +62,48 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Services
 
             //Add from email or from email with name
             message.From = !string.IsNullOrWhiteSpace(fromName) ? new MailAddress(fromEmail, fromName) : new MailAddress(fromEmail);
+
+            //Add reply-to email address if defined
+            if (!string.IsNullOrWhiteSpace(replyTo) || !string.IsNullOrEmpty(replyTo))
+            {
+                //Create array of reply-to addresses
+                var replyToEmailAddresses = replyTo.Split(new[] { ",", ";" }, StringSplitOptions.RemoveEmptyEntries);
+                if (replyToEmailAddresses.Length >= 1)
+                {
+                    foreach (var replyToEmailAddress in replyToEmailAddresses)
+                    {
+                        message.ReplyToList.Add(new MailAddress(replyToEmailAddress));
+                    }
+                }
+            }
+
+            //Add bcc email address if defined
+            if (!string.IsNullOrWhiteSpace(bcc) || !string.IsNullOrEmpty(bcc))
+            {
+                //Create array of bcc addresses
+                var bccEmailAddresses = bcc.Split(new[] { ",", ";" }, StringSplitOptions.RemoveEmptyEntries);
+                if (bccEmailAddresses.Length >= 1)
+                {
+                    foreach (var bccEmailAddress in bccEmailAddresses)
+                    {
+                        message.Bcc.Add(new MailAddress(bccEmailAddress));
+                    }
+                }
+            }
+
+            //Add cc email address if defined
+            if (!string.IsNullOrWhiteSpace(cc) || !string.IsNullOrEmpty(cc))
+            {
+                //Create array of to addresses
+                var ccEmailAddresses = cc.Split(new[] { ",", ";" }, StringSplitOptions.RemoveEmptyEntries);
+                if (ccEmailAddresses.Length >= 1)
+                {
+                    foreach (var ccEmailAddress in ccEmailAddresses)
+                    {
+                        message.CC.Add(new MailAddress(ccEmailAddress));
+                    }
+                }
+            }
 
             //Add plain text body version
             var mimeType = new ContentType("text/html");

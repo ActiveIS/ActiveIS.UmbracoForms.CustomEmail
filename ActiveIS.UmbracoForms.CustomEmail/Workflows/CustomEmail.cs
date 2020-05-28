@@ -25,16 +25,25 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
             Group = "Services";
         }
 
-        [Setting("To Email", Description = "Enter the receiver email (Seperate multiple with a comma or semi-colon)", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
+        [Setting("To Email", Description = "Enter the receiver email address (Seperate multiple with a comma or semi-colon)", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
         public string ToEmail { get; set; }
 
-        [Setting("From Email", Description = "Enter the sender email", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
+        [Setting("From Email", Description = "Enter the sender email address", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
         public string FromEmail { get; set; }
 
         [Setting("From Name", Description = "Enter the sender name", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
         public string FromName { get; set; }
 
-        [Setting("Email Heading", Description = "Enter a heading for the email", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
+        [Setting("Reply-to Email", Description = "Enter the reply-to email address (Seperate multiple with a comma or semi-colon)", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
+        public string ReplyTo { get; set; }
+
+        [Setting("Bcc Email", Description = "Enter the bcc email address (Seperate multiple with a comma or semi-colon)", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
+        public string Bcc { get; set; }
+
+        [Setting("Cc Email", Description = "Enter the cc email address (Seperate multiple with a comma or semi-colon)", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
+        public string Cc { get; set; }
+
+        [Setting("Email Heading", Description = "Enter a heading for the email address", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
         public string Heading { get; set; }
 
         [Setting("Subject", Description = "Email subject", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
@@ -61,7 +70,7 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
                     .Replace("[[HEADING]]", Heading)
                     .Replace("[[BODY]]", Message);
 
-                _smtpService.SendEmail(emailBody, ToEmail, FromEmail, FromName, Subject);
+                _smtpService.SendEmail(emailBody, ToEmail, FromEmail, FromName, Subject, ReplyTo, Bcc, Cc);
                 return WorkflowExecutionStatus.Completed;
             }
             catch (Exception ex)
