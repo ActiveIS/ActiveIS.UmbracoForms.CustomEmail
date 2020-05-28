@@ -27,8 +27,8 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
         [Setting("From Email", Description = "Enter the sender email", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
         public string FromEmail { get; set; }
 
-        [Setting("Company Name", Description = "Enter a company name to head the email and show as the from name", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
-        public string CompanyName { get; set; }
+        [Setting("From Name", Description = "Enter the sender name", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
+        public string FromName { get; set; }
 
         [Setting("Email Heading", Description = "Enter a heading for the email", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
         public string Heading { get; set; }
@@ -43,13 +43,12 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
         {
             var path = "~/Views/Partials/Forms/BasicEmails/Basic.html";
             var emailBody = File.ReadAllText(System.Web.HttpContext.Current.Server.MapPath(path))
-                .Replace("[[COMPANY NAME]]", CompanyName)
                 .Replace("[[HEADING]]", Heading)
                 .Replace("[[BODY]]", Message.Replace("\n", "<br />")
                     .Replace("\r", "<br />"));
 
 
-            HandleSmtp.SendEmail(emailBody, ToEmail, FromEmail, CompanyName, Subject);
+            HandleSmtp.SendEmail(emailBody, ToEmail, FromEmail, FromName, Subject);
 
             //record.State = FormState.Approved;
             return WorkflowExecutionStatus.Completed;
