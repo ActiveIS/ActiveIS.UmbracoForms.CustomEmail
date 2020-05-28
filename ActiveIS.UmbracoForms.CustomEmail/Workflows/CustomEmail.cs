@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Mail;
@@ -47,8 +47,8 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
                 .Replace("[[HEADING]]", Heading)
                 .Replace("[[BODY]]", Message);
 
-
-            HandleSmtp.SendEmail(emailBody, ToEmail, FromEmail, FromName, Subject);
+            var emailHandler = new HandleSmtp();
+            emailHandler.SendEmail(emailBody, ToEmail, FromEmail, FromName, Subject);
 
             //record.State = FormState.Approved;
             return WorkflowExecutionStatus.Completed;
