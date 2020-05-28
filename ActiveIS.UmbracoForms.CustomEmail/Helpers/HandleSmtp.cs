@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Net.Mail;
 using System.Runtime.InteropServices;
 using Umbraco.Core.Logging;
@@ -45,10 +45,12 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Helpers
 
             try
             {
+                SmtpClient client = new SmtpClient();
                 client.Send(message);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
+                _logger.Error(typeof(HandleSmtp), ex);
             }
         }
     }
