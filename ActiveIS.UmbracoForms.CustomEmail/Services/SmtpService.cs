@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Net.Mail;
 using System.Net.Mime;
 using ActiveIS.UmbracoForms.CustomEmail.Interfaces;
@@ -79,7 +79,7 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Services
             }
             catch (Exception ex)
             {
-                _logger.Error(typeof(HandleSmtp), ex);
+                _logger.Error(typeof(SmtpService), ex);
             }
         }
     }
