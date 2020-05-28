@@ -43,6 +43,7 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
         {
             var path = "~/Views/Partials/Forms/BasicEmails/Basic.html";
             var emailBody = File.ReadAllText(System.Web.HttpContext.Current.Server.MapPath(path))
+                .Replace("[[SUBJECT]]", Subject)
                 .Replace("[[HEADING]]", Heading)
                 .Replace("[[BODY]]", Message);
 
