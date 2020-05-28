@@ -17,7 +17,7 @@ ActiveIS.UmbracoForms.CustomEmail is available from [Our Umbraco](https://our.um
 **This package requires [Mw.UmbForms.Rte](https://github.com/Matthew-Wise/umbraco-forms-rte), this can be installed from [Our Umbraco](https://our.umbraco.com/packages/backoffice-extensions/umbraco-forms-rich-text/) or [NuGet](https://www.nuget.org/packages/Mw.UmbracoForms.Rte/)**
 
 #### Our Umbraco repository
-You can find a downloadable package on the [Our Umbraco](#) site.
+You can find a downloadable package on the [Our Umbraco](https://our.umbraco.com/packages/website-utilities/activeisumbracoformscustomemail/) site.
 
 ## Usage
 
