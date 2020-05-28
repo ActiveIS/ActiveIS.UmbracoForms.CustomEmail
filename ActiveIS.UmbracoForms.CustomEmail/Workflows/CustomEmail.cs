@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net.Mail;
 using ActiveIS.UmbracoForms.CustomEmail.Helpers;
 using Umbraco.Forms.Core;
 using Umbraco.Forms.Core.Attributes;
@@ -39,10 +38,18 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
         [Setting("Message", Description = "Enter the intro message", View = "~/App_Plugins/Mw.UmbForms.Rte/editor.html")]
         public string Message { get; set; }
 
+        [Setting("Template Name", Description = "Enter the template name (defaults to \"CustomTemplate\")", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
+        public string TemplateName { get; set; }
+
         public override WorkflowExecutionStatus Execute(Record record, RecordEventArgs e)
         {
-            var path = "~/Views/Partials/Forms/BasicEmails/Basic.html";
-            var emailBody = File.ReadAllText(System.Web.HttpContext.Current.Server.MapPath(path))
+            var template = "~/Views/Partials/Forms/BasicEmails/CustomTemplate.html";
+            if (!string.IsNullOrEmpty(TemplateName) || !string.IsNullOrWhiteSpace(TemplateName))
+            {
+                template = $"~/Views/Partials/Forms/BasicEmails/{TemplateName}.html";
+            }
+
+            var emailBody = File.ReadAllText(System.Web.HttpContext.Current.Server.MapPath(template))
                 .Replace("[[SUBJECT]]", Subject)
                 .Replace("[[HEADING]]", Heading)
                 .Replace("[[BODY]]", Message);
