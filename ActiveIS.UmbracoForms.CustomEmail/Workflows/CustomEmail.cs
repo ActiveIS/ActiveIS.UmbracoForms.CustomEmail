@@ -21,7 +21,7 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
             Group = "Services";
         }
 
-        [Setting("To Email", Description = "Enter the receiver email", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
+        [Setting("To Email", Description = "Enter the receiver email (Seperate multiple with a comma or semi-colon)", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
         public string ToEmail { get; set; }
 
         [Setting("From Email", Description = "Enter the sender email", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
