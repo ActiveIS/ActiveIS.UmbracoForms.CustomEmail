@@ -50,10 +50,10 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
         {
             try
             {
-                var template = "~/Views/Partials/Forms/BasicEmails/CustomTemplate.html";
+                var template = "~/Views/Partials/Forms/CustomEmails/CustomTemplate.html";
                 if (!string.IsNullOrEmpty(TemplateName) || !string.IsNullOrWhiteSpace(TemplateName))
                 {
-                    template = $"~/Views/Partials/Forms/BasicEmails/{TemplateName}.html";
+                    template = $"~/Views/Partials/Forms/CustomEmails/{TemplateName}.html";
                 }
 
                 var emailBody = File.ReadAllText(System.Web.HttpContext.Current.Server.MapPath(template))
