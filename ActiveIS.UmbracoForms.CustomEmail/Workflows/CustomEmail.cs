@@ -62,9 +62,19 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
                 exceptions.Add(new Exception("Message is required"));
             }
 
+            if (string.IsNullOrEmpty(Subject) || string.IsNullOrWhiteSpace(Subject))
+            {
+                exceptions.Add(new Exception("Subject is required"));
+            }
+
             if (string.IsNullOrEmpty(ToEmail) || string.IsNullOrWhiteSpace(ToEmail))
             {
                 exceptions.Add(new Exception("To email is required"));
+            }
+
+            if (string.IsNullOrEmpty(FromEmail) || string.IsNullOrWhiteSpace(FromEmail))
+            {
+                exceptions.Add(new Exception("From email is required"));
             }
 
             return exceptions;
