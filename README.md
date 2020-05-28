@@ -12,7 +12,7 @@ This package is supported on Umbraco 8.6+ and Umbraco Forms 8.4.1+.
 
 ### Installation
 
-ActiveIS.UmbracoForms.CustomEmail is available from [Our Umbraco](#), [NuGet](#) or as a manual download directly from GitHub.
+ActiveIS.UmbracoForms.CustomEmail is available from [Our Umbraco](https://our.umbraco.com/packages/website-utilities/activeisumbracoformscustomemail/), [NuGet](https://www.nuget.org/packages/ActiveIS.UmbracoForms.CustomEmail) or as a manual download directly from GitHub.
 
 **This package requires [Mw.UmbForms.Rte](https://github.com/Matthew-Wise/umbraco-forms-rte), this can be installed from [Our Umbraco](https://our.umbraco.com/packages/backoffice-extensions/umbraco-forms-rich-text/) or [NuGet](https://www.nuget.org/packages/Mw.UmbracoForms.Rte/)**
 
