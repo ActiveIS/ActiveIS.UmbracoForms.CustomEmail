@@ -160,6 +160,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Composers\RegisterSmtpServiceComposer.cs" />
     <Compile Include="Interfaces\ISmtpService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\SmtpService.cs" />

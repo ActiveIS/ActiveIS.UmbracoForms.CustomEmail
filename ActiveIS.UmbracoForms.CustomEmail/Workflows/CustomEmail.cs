@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using ActiveIS.UmbracoForms.CustomEmail.Interfaces;
+using Umbraco.Core.Logging;
 using Umbraco.Forms.Core;
 using Umbraco.Forms.Core.Attributes;
 using Umbraco.Forms.Core.Enums;
@@ -12,9 +13,11 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
     public class CustomEmailWorkflow : WorkflowType
     {
         private readonly ISmtpService _smtpService;
-        public CustomEmailWorkflow(ISmtpService smtpService)
+        private readonly ILogger _logger;
+        public CustomEmailWorkflow(ISmtpService smtpService, ILogger logger)
         {
             _smtpService = smtpService;
+            _logger = logger;
             Id = new Guid("1e106db8-685d-441f-9c19-c5e344163c2c");
             Name = "Send Custom Email";
             Description = "This workflow is is to be used to send a custom templated email";
@@ -45,21 +48,27 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
 
         public override WorkflowExecutionStatus Execute(Record record, RecordEventArgs e)
         {
-            var template = "~/Views/Partials/Forms/BasicEmails/CustomTemplate.html";
-            if (!string.IsNullOrEmpty(TemplateName) || !string.IsNullOrWhiteSpace(TemplateName))
+            try
             {
-                template = $"~/Views/Partials/Forms/BasicEmails/{TemplateName}.html";
+                var template = "~/Views/Partials/Forms/BasicEmails/CustomTemplate.html";
+                if (!string.IsNullOrEmpty(TemplateName) || !string.IsNullOrWhiteSpace(TemplateName))
+                {
+                    template = $"~/Views/Partials/Forms/BasicEmails/{TemplateName}.html";
+                }
+
+                var emailBody = File.ReadAllText(System.Web.HttpContext.Current.Server.MapPath(template))
+                    .Replace("[[SUBJECT]]", Subject)
+                    .Replace("[[HEADING]]", Heading)
+                    .Replace("[[BODY]]", Message);
+
+                _smtpService.SendEmail(emailBody, ToEmail, FromEmail, FromName, Subject);
+                return WorkflowExecutionStatus.Completed;
             }
-
-            var emailBody = File.ReadAllText(System.Web.HttpContext.Current.Server.MapPath(template))
-                .Replace("[[SUBJECT]]", Subject)
-                .Replace("[[HEADING]]", Heading)
-                .Replace("[[BODY]]", Message);
-
-            _smtpService.SendEmail(emailBody, ToEmail, FromEmail, FromName, Subject);
-
-            //record.State = FormState.Approved;
-            return WorkflowExecutionStatus.Completed;
+            catch (Exception ex)
+            {
+                _logger.Error(typeof(CustomEmailWorkflow), ex);
+                return WorkflowExecutionStatus.Failed;
+            }
         }
 
         public override List<Exception> ValidateSettings()
