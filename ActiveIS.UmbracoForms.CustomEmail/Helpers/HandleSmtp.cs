@@ -9,7 +9,11 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Helpers
     {
         private readonly ILogger _logger;
 
-        private HandleSmtp(ILogger logger)
+        internal HandleSmtp()
+        {
+        }
+
+        internal HandleSmtp(ILogger logger)
         {
             _logger = logger;
         }
