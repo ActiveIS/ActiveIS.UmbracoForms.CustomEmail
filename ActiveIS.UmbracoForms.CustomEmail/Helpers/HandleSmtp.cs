@@ -17,7 +17,6 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Helpers
         {
             MailMessage message = new MailMessage
             {
-                From = new MailAddress(fromEmail, fromName),
                 Subject = subject,
                 Body = emailBody,
                 IsBodyHtml = true,
@@ -29,6 +28,12 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Helpers
                 throw new Exception("No to addresses have been defined");
             }
 
+            if (string.IsNullOrEmpty(fromEmail) || string.IsNullOrWhiteSpace(fromEmail))
+            {
+                throw new Exception("No from address has been defined");
+            }
+
+            message.From = !string.IsNullOrWhiteSpace(fromName) ? new MailAddress(fromEmail, fromName) : new MailAddress(fromEmail);
 
             if (toEmailAddresses.Length > 1)
             {
