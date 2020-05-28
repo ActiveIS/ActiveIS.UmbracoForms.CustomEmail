@@ -23,10 +23,20 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Helpers
                 IsBodyHtml = true,
             };
 
-            message.To.Add(toEmail);
+            var toEmailAddresses = toEmail.Split(new[] { ",", ";" }, StringSplitOptions.RemoveEmptyEntries);
+            if (toEmailAddresses.Length == 0)
+            {
+                throw new Exception("No to addresses have been defined");
+            }
 
 
-            SmtpClient client = new SmtpClient();
+            if (toEmailAddresses.Length > 1)
+            {
+                foreach (var toEmailAddress in toEmailAddresses)
+                {
+                    message.To.Add(toEmailAddress);
+                }
+            }
 
             try
             {
