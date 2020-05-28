@@ -1,0 +1,18 @@
+{
+  "id": "ccac78c3-a96d-481f-a499-321cfa755605",
+  "name": "Custom Email",
+  "form": "7b1bca91-c767-4b2d-9351-9a6931f06ef9",
+  "active": true,
+  "includeSensitiveData": "False",
+  "workflowTypeId": "1e106db8-685d-441f-9c19-c5e344163c2c",
+  "executesOn": "Submitted",
+  "settings": {
+    "ToEmail": "aaron.sadler@activeis.net",
+    "FromEmail": "no-reply@activeis.net",
+    "FromName": "ActiveIS",
+    "Heading": "Test Heading",
+    "Subject": "Test Subject",
+    "Message": "<p><strong>Test</strong> <em>email</em> body using <a rel=\"noopener\" href=\"https://www.google.com\" target=\"_blank\">RTE</a></p>"
+  },
+  "sortOrder": 0
+}
