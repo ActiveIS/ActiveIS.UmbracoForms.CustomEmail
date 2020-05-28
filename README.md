@@ -3,6 +3,8 @@
 A customizable email template which does not include the form data.
 You can add multiple Reply-to, To, Bcc, Cc addresses, sends both HTMl and plain text versions and uses an RTE for the email body.
 
+The email template is fully customizable, and the template name can be input via the Umbraco backoffice.
+
 ## Getting started
 
 This package is supported on Umbraco 8.6+ and Umbraco Forms 8.4.1+.
@@ -11,7 +13,7 @@ This package is supported on Umbraco 8.6+ and Umbraco Forms 8.4.1+.
 
 ActiveIS.UmbracoForms.CustomEmail is available from [Our Umbraco](#), [NuGet](#) or as a manual download directly from GitHub.
 
-**This package requires [Mw.UmbForms.Rte](https://github.com/Matthew-Wise/umbraco-forms-rte) to be installed!*
+**This package requires [Mw.UmbForms.Rte](https://github.com/Matthew-Wise/umbraco-forms-rte) to be installed!**
 
 #### Our Umbraco repository
 You can find a downloadable package on the [Our Umbraco](#) site.
