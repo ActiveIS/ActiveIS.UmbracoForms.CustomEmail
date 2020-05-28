@@ -44,8 +44,7 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
             var path = "~/Views/Partials/Forms/BasicEmails/Basic.html";
             var emailBody = File.ReadAllText(System.Web.HttpContext.Current.Server.MapPath(path))
                 .Replace("[[HEADING]]", Heading)
-                .Replace("[[BODY]]", Message.Replace("\n", "<br />")
-                    .Replace("\r", "<br />"));
+                .Replace("[[BODY]]", Message);
 
 
             HandleSmtp.SendEmail(emailBody, ToEmail, FromEmail, FromName, Subject);
