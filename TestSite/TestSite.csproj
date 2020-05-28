@@ -560,6 +560,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ActiveIS.UmbracoForms.CustomEmail\ActiveIS.UmbracoForms.CustomEmail.csproj">
+      <Project>{fbd4f419-35a3-436b-ac93-e52528809da4}</Project>
+      <Name>ActiveIS.UmbracoForms.CustomEmail</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
