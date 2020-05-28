@@ -1,34 +1,28 @@
 ﻿using System;
 using System.Net.Mail;
 using System.Net.Mime;
+using ActiveIS.UmbracoForms.CustomEmail.Helpers;
+using ActiveIS.UmbracoForms.CustomEmail.Interfaces;
 using Umbraco.Core.Logging;
 
-namespace ActiveIS.UmbracoForms.CustomEmail.Helpers
+namespace ActiveIS.UmbracoForms.CustomEmail.Services
 {
-    internal class HandleSmtp
+    internal class SmtpService : ISmtpService
     {
         private readonly ILogger _logger;
 
-        internal HandleSmtp()
+        internal SmtpService()
         {
         }
 
-        internal HandleSmtp(ILogger logger)
+        internal SmtpService(ILogger logger)
         {
             _logger = logger;
         }
 
-        /// <summary>
-        /// Send email using SMTP
-        /// </summary>
-        /// <param name="emailBody">HTML email body</param>
-        /// <param name="toEmail">To email address</param>
-        /// <param name="fromEmail">From email address</param>
-        /// <param name="fromName">From name</param>
-        /// <param name="subject">Email subject</param>
-        internal void SendEmail(string emailBody, string toEmail, string fromEmail, string fromName, string subject)
+        public void SendEmail(string emailBody, string toEmail, string fromEmail, string fromName, string subject)
         {
-            MailMessage message = new MailMessage();
+            var message = new MailMessage();
 
             //Create array of to addresses
             var toEmailAddresses = toEmail.Split(new[] { ",", ";" }, StringSplitOptions.RemoveEmptyEntries);
@@ -81,7 +75,7 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Helpers
             //Try to send the email
             try
             {
-                SmtpClient client = new SmtpClient();
+                var client = new SmtpClient();
                 client.Send(message);
             }
             catch (Exception ex)

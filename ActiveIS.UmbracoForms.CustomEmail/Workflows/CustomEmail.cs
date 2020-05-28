@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using ActiveIS.UmbracoForms.CustomEmail.Helpers;
+using ActiveIS.UmbracoForms.CustomEmail.Interfaces;
 using Umbraco.Forms.Core;
 using Umbraco.Forms.Core.Attributes;
 using Umbraco.Forms.Core.Enums;
@@ -11,8 +11,10 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
 {
     public class CustomEmailWorkflow : WorkflowType
     {
-        public CustomEmailWorkflow()
+        private readonly ISmtpService _smtpService;
+        public CustomEmailWorkflow(ISmtpService smtpService)
         {
+            _smtpService = smtpService;
             Id = new Guid("1e106db8-685d-441f-9c19-c5e344163c2c");
             Name = "Send Custom Email";
             Description = "This workflow is is to be used to send a custom templated email";
@@ -54,8 +56,7 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
                 .Replace("[[HEADING]]", Heading)
                 .Replace("[[BODY]]", Message);
 
-            var emailHandler = new HandleSmtp();
-            emailHandler.SendEmail(emailBody, ToEmail, FromEmail, FromName, Subject);
+            _smtpService.SendEmail(emailBody, ToEmail, FromEmail, FromName, Subject);
 
             //record.State = FormState.Approved;
             return WorkflowExecutionStatus.Completed;
