@@ -1,21 +1,20 @@
-﻿using System;
+using System;
 using System.Net.Mail;
 using System.Net.Mime;
-using ActiveIS.UmbracoForms.CustomEmail.Helpers;
 using ActiveIS.UmbracoForms.CustomEmail.Interfaces;
 using Umbraco.Core.Logging;
 
 namespace ActiveIS.UmbracoForms.CustomEmail.Services
 {
-    internal class SmtpService : ISmtpService
+    public class SmtpService : ISmtpService
     {
         private readonly ILogger _logger;
 
-        internal SmtpService()
+        public SmtpService()
         {
         }
 
-        internal SmtpService(ILogger logger)
+        public SmtpService(ILogger logger)
         {
             _logger = logger;
         }
