@@ -15,12 +15,7 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Helpers
         }
         internal void SendEmail(string emailBody, string toEmail, string fromEmail, string fromName, string subject)
         {
-            MailMessage message = new MailMessage
-            {
-                Subject = subject,
-                Body = emailBody,
-                IsBodyHtml = true,
-            };
+            MailMessage message = new MailMessage();
 
             var toEmailAddresses = toEmail.Split(new[] { ",", ";" }, StringSplitOptions.RemoveEmptyEntries);
             if (toEmailAddresses.Length == 0)
@@ -33,7 +28,15 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Helpers
                 throw new Exception("No from address has been defined");
             }
 
-            message.From = !string.IsNullOrWhiteSpace(fromName) ? new MailAddress(fromEmail, fromName) : new MailAddress(fromEmail);
+            if (string.IsNullOrEmpty(subject) || string.IsNullOrWhiteSpace(subject))
+            {
+                throw new Exception("No subject has been defined");
+            }
+
+            if (string.IsNullOrEmpty(emailBody) || string.IsNullOrWhiteSpace(emailBody))
+            {
+                throw new Exception("No email body has been defined");
+            }
 
             if (toEmailAddresses.Length > 1)
             {
@@ -43,10 +46,18 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Helpers
                 }
             }
 
+            message.Subject = subject;
+
+            message.From = !string.IsNullOrWhiteSpace(fromName) ? new MailAddress(fromEmail, fromName) : new MailAddress(fromEmail);
+
             //Add plain text body version
             var mimeType = new ContentType("text/html");
             var plainText = AlternateView.CreateAlternateViewFromString(emailBody, mimeType);
             message.AlternateViews.Add(plainText);
+
+            message.IsBodyHtml = true;
+            message.Body = emailBody;
+
             try
             {
                 SmtpClient client = new SmtpClient();
