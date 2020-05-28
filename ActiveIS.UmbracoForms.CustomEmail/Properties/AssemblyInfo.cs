@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ActiveIS.UmbracoForms.CustomEmail")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A customizable email template which does not include the form data")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("ActiveIS")]
 [assembly: AssemblyProduct("ActiveIS.UmbracoForms.CustomEmail")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
