@@ -1,6 +1,7 @@
 # ActiveIS.UmbracoForms.CustomEmail
 
 A customizable email template which does not include the form data.
+
 You can add multiple Reply-to, To, Bcc, Cc addresses, sends both HTMl and plain text versions and uses an RTE for the email body.
 
 The email template is fully customizable, and the template name can be input via the Umbraco backoffice.
