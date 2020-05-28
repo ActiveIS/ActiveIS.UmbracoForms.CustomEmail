@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 using System.Net.Mail;
-using System.Runtime.InteropServices;
+using System.Net.Mime;
 using Umbraco.Core.Logging;
 
 namespace ActiveIS.UmbracoForms.CustomEmail.Helpers
@@ -43,6 +43,10 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Helpers
                 }
             }
 
+            //Add plain text body version
+            var mimeType = new ContentType("text/html");
+            var plainText = AlternateView.CreateAlternateViewFromString(emailBody, mimeType);
+            message.AlternateViews.Add(plainText);
             try
             {
                 SmtpClient client = new SmtpClient();
