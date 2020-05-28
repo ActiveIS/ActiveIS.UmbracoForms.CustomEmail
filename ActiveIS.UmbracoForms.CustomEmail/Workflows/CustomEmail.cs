@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Mail;
@@ -36,7 +36,7 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
         [Setting("Subject", Description = "Email subject", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
         public string Subject { get; set; }
 
-        [Setting("Message", Description = "Enter the intro message", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textarea.html")]
+        [Setting("Message", Description = "Enter the intro message", View = "~/App_Plugins/Mw.UmbForms.Rte/editor.html")]
         public string Message { get; set; }
 
         public override WorkflowExecutionStatus Execute(Record record, RecordEventArgs e)
