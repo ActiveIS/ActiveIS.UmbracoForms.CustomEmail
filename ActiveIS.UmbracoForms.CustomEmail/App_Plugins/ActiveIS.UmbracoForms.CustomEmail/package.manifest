@@ -1,0 +1,6 @@
+﻿{
+  "javascript": [
+    "~/App_Plugins/ActiveIS.UmbracoForms.CustomEmail/js/customemail.controller.js",
+    "~/App_Plugins/ActiveIS.UmbracoForms.CustomEmail/js/customemail.resource.js"
+  ]
+}
