@@ -16,7 +16,7 @@
     "Heading": "Test Heading",
     "Subject": "Test Subject",
     "Message": "<p><strong>Test</strong> <em>email</em> body using <a rel=\"noopener\" href=\"https://www.google.com\" target=\"_blank\">RTE</a></p>",
-    "TemplateName": null
+    "TemplateName": "Forms/CustomEmails/CustomTemplate.html"
   },
   "sortOrder": 0
 }

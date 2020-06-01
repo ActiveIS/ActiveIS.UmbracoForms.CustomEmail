@@ -283,7 +283,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\ActiveIS.UmbracoForms.CustomEmail\Backoffice\Common\SettingTypes\customemailtemplatepicker.html" />
     <Content Include="App_Plugins\ActiveIS.UmbracoForms.CustomEmail\js\customemail.controller.js" />
+    <Content Include="App_Plugins\ActiveIS.UmbracoForms.CustomEmail\js\customemail.resource.js" />
     <Content Include="App_Plugins\Mw.UmbForms.Rte\design.html" />
     <Content Include="App_Plugins\Mw.UmbForms.Rte\editor.html" />
     <Content Include="App_Plugins\Mw.UmbForms.Rte\lang\en.xml" />
