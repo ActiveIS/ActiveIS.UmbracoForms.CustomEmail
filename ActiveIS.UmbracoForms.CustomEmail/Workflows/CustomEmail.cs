@@ -52,18 +52,14 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
         [Setting("Message", Description = "Enter the intro message", View = "~/App_Plugins/Mw.UmbForms.Rte/editor.html")]
         public string Message { get; set; }
 
-        [Setting("Template Name", Description = "Enter the template name (defaults to \"CustomTemplate\")", View = "~/App_Plugins/UmbracoForms/Backoffice/Common/SettingTypes/textfield.html")]
+        [Setting("Template Name", Description = "Enter the template name (defaults to \"CustomTemplate\")", View = "~/App_Plugins/ActiveIS.UmbracoForms.CustomEmail/Backoffice/Common/SettingTypes/customemailtemplatepicker.html")]
         public string TemplateName { get; set; }
 
         public override WorkflowExecutionStatus Execute(Record record, RecordEventArgs e)
         {
             try
             {
-                var template = "~/Views/Partials/Forms/CustomEmails/CustomTemplate.html";
-                if (!string.IsNullOrEmpty(TemplateName) || !string.IsNullOrWhiteSpace(TemplateName))
-                {
-                    template = $"~/Views/Partials/Forms/CustomEmails/{TemplateName}.html";
-                }
+                var template = $"~/Views/Partials/{TemplateName}";
 
                 var emailBody = File.ReadAllText(System.Web.HttpContext.Current.Server.MapPath(template))
                     .Replace("[[SUBJECT]]", Subject)
@@ -85,23 +81,26 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
             var exceptions = new List<Exception>();
             if (string.IsNullOrEmpty(Message) || string.IsNullOrWhiteSpace(Message))
             {
-                exceptions.Add(new Exception("Message is required"));
+                exceptions.Add(new ArgumentNullException("Message", "Message is required"));
             }
 
             if (string.IsNullOrEmpty(Subject) || string.IsNullOrWhiteSpace(Subject))
             {
-                exceptions.Add(new Exception("Subject is required"));
+                exceptions.Add(new ArgumentNullException("Subject", "Subject is required"));
             }
 
             if (string.IsNullOrEmpty(ToEmail) || string.IsNullOrWhiteSpace(ToEmail))
             {
-                exceptions.Add(new Exception("To email is required"));
+                exceptions.Add(new ArgumentNullException("ToEmail", "To email is required"));
             }
 
             if (string.IsNullOrEmpty(FromEmail) || string.IsNullOrWhiteSpace(FromEmail))
             {
-                exceptions.Add(new Exception("From email is required"));
+                exceptions.Add(new ArgumentNullException("FromEmail", "From email is required"));
             }
+
+            if (string.IsNullOrEmpty(TemplateName) || string.IsNullOrWhiteSpace(TemplateName))
+                exceptions.Add(new ArgumentNullException("TemplateName", "'TemplateName' setting has not been set'"));
 
             return exceptions;
         }
