@@ -25,6 +25,13 @@ This package adds a customizable email template to Umbraco Forms.
 
 This is tested with **Umbraco V8.6.1** and **Umbraco Forms 8.4.1**
 
+## Changelog
+
+## [1.1.0] - 2020-06-01
+### Changed
+**This contains breaking changes!**
+* Reworked the template picker to use a tree instead of a text input
+
 ### Contribution guidelines
 
 To raise a new bug, create an issue on the GitHub repository. To fix a bug or add new features, fork the repository and send a pull request with your changes. Feel free to add ideas to the repository's issues list if you would to discuss anything related to the package.
