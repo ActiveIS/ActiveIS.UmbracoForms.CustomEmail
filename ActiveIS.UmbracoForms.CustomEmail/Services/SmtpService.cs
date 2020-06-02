@@ -118,12 +118,12 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Services
             if (!string.IsNullOrEmpty(fromName) || !string.IsNullOrWhiteSpace(fromName))
             {
                 //On Behalf of email fix
-                message.Headers.Add("sender", $"{fromEmail} <{fromName}>");
+                message.Sender = new MailAddress(fromEmail, fromName);
             }
             else if (!string.IsNullOrEmpty(fromEmail))
             {
                 //On Behalf of email fix
-                message.Headers.Add("sender", $"{fromEmail}");
+                message.Sender = new MailAddress(fromEmail);
             }
 
             //Try to send the email
