@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<umbPackage>
+  <info>
+    <package>
+      <name>ActiveIS.UmbracoForms.CustomEmail</name>
+      <version>1.1.1</version>
+      <iconUrl>https://media.githubusercontent.com/media/ActiveIS/ActiveIS.UmbracoForms.CustomEmail/master/Builds/logo.png</iconUrl>
+      <licence url="https://opensource.org/licenses/MIT">MIT</licence>
+      <url>https://our.umbraco.com/packages/website-utilities/activeisumbracoformscustomemail//</url>
+      <requirements type="strict">
+        <major>8</major>
+        <minor>6</minor>
+        <patch>1</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>ActiveIS</name>
+      <website>https://github.com/ActiveIS/ActiveIS.UmbracoForms.CustomEmail</website>
+    </author>
+    <readme><![CDATA[A customizable email template which does not include the form data]]></readme>
+  </info>
+  <files>
+    <folder path="src/ActiveIS.UmbracoForms.CustomEmail/App_Plugins/ActiveIS.UmbracoForms.CustomEmail" orgPath="App_Plugins/ActiveIS.UmbracoForms.CustomEmail" />
+    <file path="src/ActiveIS.UmbracoForms.CustomEmail/bin/Release/net472/ActiveIS.UmbracoForms.CustomEmail.dll" orgPath="bin/ActiveIS.UmbracoForms.CustomEmail.dll" />
+    <file path="src/ActiveIS.UmbracoForms.CustomEmail/Views/Partials/Forms/CustomEmails/CustomTemplate.html" orgPath="Views/Partials/Forms/CustomEmails/CustomTemplate.html" />
+  </files>
+  <Actions />
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+</umbPackage>
