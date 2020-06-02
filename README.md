@@ -27,6 +27,10 @@ This is tested with **Umbraco V8.6.1** and **Umbraco Forms 8.4.1**
 
 ## Changelog
 
+## [v1.1.3] - 2020-06-02
+### Fixed
+* Included missing backoffice files
+
 ## [v1.1.2] - 2020-06-02
 ### Fixed
 * Added "sender" header to stop "on behalf of" from name when using MailGun or SendGrid
