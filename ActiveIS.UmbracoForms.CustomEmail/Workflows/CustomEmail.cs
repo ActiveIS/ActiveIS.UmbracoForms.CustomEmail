@@ -52,7 +52,7 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Workflows
         [Setting("Message", Description = "Enter the intro message", View = "~/App_Plugins/Mw.UmbForms.Rte/editor.html")]
         public string Message { get; set; }
 
-        [Setting("Template Name", Description = "Enter the template name (defaults to \"CustomTemplate\")", View = "~/App_Plugins/ActiveIS.UmbracoForms.CustomEmail/Backoffice/Common/SettingTypes/customemailtemplatepicker.html")]
+        [Setting("Template Name", Description = "The path to the template that you want to use for generating the email. Email templates are stored at /views/partials/forms/customemails", View = "~/App_Plugins/ActiveIS.UmbracoForms.CustomEmail/Backoffice/Common/SettingTypes/customemailtemplatepicker.html")]
         public string TemplateName { get; set; }
 
         public override WorkflowExecutionStatus Execute(Record record, RecordEventArgs e)
