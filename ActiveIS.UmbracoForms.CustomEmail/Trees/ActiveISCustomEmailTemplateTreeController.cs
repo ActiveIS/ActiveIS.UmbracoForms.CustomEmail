@@ -8,9 +8,8 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Trees
     [PluginController("ActiveISCustomEmail")]
     public class ActiveISCustomEmailTemplateTreeController : FileSystemTreeController
     {
-        private static readonly string[] ExtensionsStatic = new string[2]
+        private static readonly string[] ExtensionsStatic = new string[1]
         {
-            "cshtml",
             "html"
         };
 
