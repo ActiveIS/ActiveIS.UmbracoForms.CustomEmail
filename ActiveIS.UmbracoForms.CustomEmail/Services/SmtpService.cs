@@ -114,6 +114,18 @@ namespace ActiveIS.UmbracoForms.CustomEmail.Services
             message.IsBodyHtml = true;
             message.Body = emailBody;
 
+            // MailGun & SendGrid (possibly others) will format the from address as "on behalf of" without this header
+            if (!string.IsNullOrEmpty(fromName) || !string.IsNullOrWhiteSpace(fromName))
+            {
+                //On Behalf of email fix
+                message.Headers.Add("sender", $"{fromEmail} <{fromName}>");
+            }
+            else if (!string.IsNullOrEmpty(fromEmail))
+            {
+                //On Behalf of email fix
+                message.Headers.Add("sender", $"{fromEmail}");
+            }
+
             //Try to send the email
             try
             {
