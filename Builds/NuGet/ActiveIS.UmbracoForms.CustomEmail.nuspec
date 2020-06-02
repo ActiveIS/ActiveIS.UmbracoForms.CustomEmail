@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>ActiveIS.UmbracoForms.CustomEmail</id>
-    <version>1.1.2</version>
+    <version>1.1.3</version>
     <title>ActiveIS.UmbracoForms.CustomEmail</title>
     <authors>ActiveIS</authors>
     <owners>ActiveIS</owners>
@@ -11,7 +11,7 @@
     <projectUrl>https://github.com/ActiveIS/ActiveIS.UmbracoForms.CustomEmail</projectUrl>
     <icon>logo.png</icon>
     <description>A customizable email template which does not include the form data</description>
-    <releaseNotes>Added "sender" header to stop "on behalf of" when using MailGun or SendGrid</releaseNotes>
+    <releaseNotes>Included missing backoffice files</releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>umbraco umbraco-cms umbraco-forms</tags>
 	<dependencies>
@@ -28,5 +28,6 @@
       <file src="..\..\ActiveIS.UmbracoForms.CustomEmail\App_Plugins\ActiveIS.UmbracoForms.CustomEmail\**\*"/>
 	  <file src="..\..\ActiveIS.UmbracoForms.CustomEmail\bin\Release\ActiveIS.UmbracoForms.CustomEmail.dll" target="lib\net472" />
 	  <file src="..\..\ActiveIS.UmbracoForms.CustomEmail\Views\Partials\Forms\CustomEmails\CustomTemplate.html" target="content\Views\Partials\Forms\CustomEmails\" />
+	  <file src="..\..\ActiveIS.UmbracoForms.CustomEmail\App_Plugins\ActiveIS.UmbracoForms.CustomEmail\**\*" target="content\App_Plugins\ActiveIS.UmbracoForms.CustomEmail\" />
     </files>
 </package>
