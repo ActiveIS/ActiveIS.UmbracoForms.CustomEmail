@@ -27,6 +27,10 @@ This is tested with **Umbraco V8.6.1** and **Umbraco Forms 8.4.1**
 
 ## Changelog
 
+## [v1.1.4] - 2020-06-02
+### Fixed
+* Fixed sender header
+
 ## [v1.1.3] - 2020-06-02
 ### Fixed
 * Included missing backoffice files
