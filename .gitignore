@@ -365,12 +365,3 @@ healthchecksdb
 
 # Ignore the Models Builder models out of date flag
 **/App_Data/Models/ood.flag
-ArcEurope/App_Data/Models/all.dll.path
-
-ArcEurope/css/styles.css
-
-ArcEurope/css/styles.css.map
-
-ArcEurope/css/styles.min.css
-
-**/rev-manifest.json
